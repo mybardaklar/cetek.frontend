@@ -1,0 +1,30 @@
+{
+	"navbar": {
+		"products": {
+			"href": "/urunlerimiz",
+			"label": "Ürünlerimiz"
+		},
+		"sectoralNozzles": {
+			"href": "/sektorel-nozullar",
+			"label": "Sektörel Nozullar"
+		},
+		"gallery": {
+			"href": "/galeri",
+			"label": "Galeri"
+		},
+		"contact": {
+			"href": "/iletisim",
+			"label": "İletişim"
+		},
+		"seeAllProducts": {
+			"href": "/urunlerimiz",
+			"label": "Tüm ürünleri gör"
+		}
+	},
+	"home": {
+		"title": "Kitap mağazası",
+		"total": "Listede toplamda {{counter}} tane kitap var",
+		"buttonText": "Yenileme butonu",
+		"buttonHTML": "<button onClick='window.location.reload();'>$t(buttonText)</button>"
+	}
+}
