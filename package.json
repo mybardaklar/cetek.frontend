@@ -3,8 +3,8 @@
 	"version": "0.0.0",
 	"private": true,
 	"scripts": {
-		"start": "node ./bin/www",
-		"dev": "concurrently \"npx tailwindcss -i ./assets/css/tailwind.css -o ./public/css/tailwind.css --watch\" \"nodemon ./bin/www\"",
+		"start": "node app.js",
+		"dev": "concurrently \"npx tailwindcss -i ./assets/css/tailwind.css -o ./public/css/tailwind.css --watch\" \"nodemon app.js\"",
 		"build": "npx tailwindcss build ./assets/css/tailwind.css -o ./public/css/tailwind.css",
 		"prettier": "prettier . --write"
 	},
