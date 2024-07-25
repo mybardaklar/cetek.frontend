@@ -1,4 +1,5 @@
 {
+	"routeProducts": "/urunlerimiz",
 	"navbar": {
 		"products": {
 			"href": "/urunlerimiz",
@@ -26,5 +27,17 @@
 		"total": "Listede toplamda {{counter}} tane kitap var",
 		"buttonText": "Yenileme butonu",
 		"buttonHTML": "<button onClick='window.location.reload();'>$t(buttonText)</button>"
+	},
+	"pageHome": {
+		"sectionAbout": {
+			"buttonProducts": {
+				"href": "/urunlerimiz",
+				"label": "Tüm ürünleri gör"
+			},
+			"buttonContact": {
+				"href": "/iletisim",
+				"label": "İletişime geç"
+			}
+		}
 	}
 }

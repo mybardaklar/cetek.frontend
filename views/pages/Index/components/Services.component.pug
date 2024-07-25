@@ -6,7 +6,7 @@ mixin SectionServices
 					div(class="flex flex-col")
 						div(class="lg:px-4")
 							div(class="bg-neutral-100 p-8 flex flex-col justify-center gap-3 lg:h-96 xl:h-72")
-								h3(class="text-4xl leading-tight")!= homeSettings.services_section.title
+								h2(class="text-4xl leading-tight")!= homeSettings.services_section.title
 								p!= homeSettings.services_section.description
 
 						div(class="bg-[#b3002b] lg:h-96 xl:h-72")
@@ -39,4 +39,4 @@ mixin SectionServices
 										alt="alt",
 										class="object-cover"
 									)
-									strong= service.title
+									h4(class="text-lg font-semibold")= service.title

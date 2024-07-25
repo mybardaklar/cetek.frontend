@@ -13,8 +13,8 @@ mixin SectionHero
 							)
 							div(class="relative z-20 flex-grow h-full min-h-[600px] py-28 md:py-20 px-8 flex flex-col items-center justify-center gap-5 text-center bg-neutral-800 bg-opacity-60")
 								div(class="flex flex-col justify-center items-center gap-2 max-w-screen-sm")
-									h6(class="flex items-center text-white text-opacity-80 text-sm tracking-widest before:content-[''] before:block before:h-1 before:w-8 before:bg-cetek-600 before:mr-3 after:content-[''] after:block after:h-1 after:w-8 after:bg-cetek-600 after:ml-3")= sliderItem.subtitle
-									h1(class="text-white font-normal text-3xl sm:text-6xl [&_strong]:font-semibold")!= sliderItem.main_title
+									h3(class="flex items-center text-white text-opacity-80 text-sm tracking-widest before:content-[''] before:block before:h-1 before:w-8 before:bg-cetek-600 before:mr-3 after:content-[''] after:block after:h-1 after:w-8 after:bg-cetek-600 after:ml-3")= sliderItem.subtitle
+									h2(class="text-white font-normal text-3xl sm:text-6xl [&_strong]:font-semibold")!= sliderItem.main_title
 									p(class="text-white text-opacity-80 text-sm sm:text-base font-light leading-7")!= sliderItem.description
 								a(
 									href=sliderItem.button_link,

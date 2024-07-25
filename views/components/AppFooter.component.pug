@@ -1,10 +1,10 @@
 mixin SectionReferences
-	section(class="bg-neutral-100")
-		div(class="container")
+	section(class="bg-neutral-100 py-8")
+		div(class="px-10")
 			div(id="SectionReferencesSlider", class="keen-slider items-center")
 				each sliderItem in settings.config.website_settings.references
 					div(class="keen-slider__slide")
-						div(class="text-center")
+						div(class="flex justify-center items-center text-center")
 							img(
 								src=sliderItem.image.sizes['medium'],
 								alt="alt",

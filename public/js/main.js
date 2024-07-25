@@ -14,8 +14,22 @@ document.addEventListener("DOMContentLoaded", () => {
 		{
 			loop: true,
 			slides: {
-				perView: 5,
+				perView: 1,
 				spacing: 40,
+			},
+			breakpoints: {
+				"(min-width: 425px)": {
+					slides: { perView: 2, spacing: 40 },
+				},
+				"(min-width: 640px)": {
+					slides: { perView: 3, spacing: 40 },
+				},
+				"(min-width: 768px)": {
+					slides: { perView: 4, spacing: 40 },
+				},
+				"(min-width: 1024px)": {
+					slides: { perView: 5, spacing: 40 },
+				},
 			},
 		},
 		[
