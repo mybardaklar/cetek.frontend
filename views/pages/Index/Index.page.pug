@@ -1,6 +1,7 @@
 extends ../../layouts/Default.layout.pug
 
 include ./components/Hero.component.pug
+include ./components/Services.component.pug
 
 block prepend head
 	- PageProps.title = homeSettings.meta_title
@@ -9,6 +10,16 @@ block prepend head
 
 block body
 	+SectionHero
+	+SectionServices
+
+	br
+	br
+	br
+	br
+	br
+	br
+	br
+
 	.container
 		h1 Welcome to #{title}
 		p Welcome #{t("home.title")}
@@ -30,13 +41,7 @@ block append scripts
 					slides: {
 						perView: 1,
 					},
-					created: () => {
-						console.log("created");
-					},
 				},
-				[
-					// add plugins here
-				],
 			);
 
 			const $PageHomeHeroSliderPrevButton = document.getElementById("PageHomeHeroSliderPrevButton");

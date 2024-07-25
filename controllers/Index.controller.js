@@ -16,7 +16,7 @@ class IndexController {
 	static async list(req, res, next) {
 		return res.render("pages/Index/Index.page.pug", {
 			title: "Express",
-			homeSettings: await getHomeSettings(req.query.lng),
+			homeSettings: await getHomeSettings(res.locals.language),
 		});
 	}
 }

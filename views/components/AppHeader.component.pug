@@ -3,10 +3,10 @@ mixin AppHeader
 			div(class="flex justify-center")
 				div(class="w-full")
 					div(class="h-24 bg-white shadow flex items-center px-4 rounded")
-						a(href="/", class="inline-flex w-40 items-center justify-start")
+						a(href="/", class="inline-block w-40")
 							img(
-								src=settings.websiteSettings.website_settings.header_logo.sizes['medium'],
-								alt=settings.websiteSettings.website_settings.header_logo.alt,
+								src=settings.config.website_settings.header_logo.sizes['medium'],
+								alt=settings.config.website_settings.header_logo.alt,
 								class="w-full"
 							)
 						+AppHeaderNavbar
@@ -26,9 +26,8 @@ mixin AppHeaderNavbar
 			li(
 				class="relative group/dropdown",
 			)
-				a(
-					href=t("navbar.products.href"),
-					class="inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 group-hover/dropdown:bg-accent/50"
+				span(
+					class="inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 group-hover/dropdown:bg-accent/50 group-hover/dropdown:pointer-events-none"
 				)= t("navbar.products.label")
 					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" class="ml-1 transition group-hover/dropdown:rotate-180"><path fill="currentColor" d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6l-6-6z"/></svg>
 

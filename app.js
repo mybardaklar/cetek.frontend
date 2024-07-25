@@ -8,11 +8,12 @@ const logger = require("morgan");
 const i18next = require("i18next");
 const i18nextMiddleware = require("i18next-http-middleware");
 const Backend = require("i18next-fs-backend");
-const axiosInstance = require("./lib/axios");
 
+const axiosInstance = require("./lib/axios");
 const indexRouter = require("./routes/Index.route");
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 i18next
 	.use(Backend)
@@ -41,24 +42,24 @@ app.use(i18nextMiddleware.handle(i18next));
 app.use(express.static(path.join(__dirname, "public")));
 
 (async () => {
-	const websiteSettings = await getWebsiteSettings("tr");
+	const configurationSettings = await getConfigurationSettings("tr");
 	const someProductCategories = await getSomeProductCategories("tr");
 
-	app.set("websiteSettings", websiteSettings);
+	app.set("config", configurationSettings);
 	app.locals.someProductCategories = someProductCategories;
 })();
 
 app.use(async (req, res, next) => {
-	if (req.query.lng) {
-		const websiteSettings = await getWebsiteSettings(req.query.lng);
-		const someProductCategories = await getSomeProductCategories(req.query.lng);
+	if (res.locals.language) {
+		const configurationSettings = await getConfigurationSettings(res.locals.language);
+		const someProductCategories = await getSomeProductCategories(res.locals.language);
 
-		app.set("websiteSettings", websiteSettings);
+		app.set("config", configurationSettings);
 		app.locals.someProductCategories = someProductCategories;
 	}
 
 	res.locals.PageProps = {
-		titlePrefix: app.locals.settings.websiteSettings.meta_title,
+		titlePrefix: app.locals.settings.config.meta_title,
 		title: "",
 		metaDescription: "",
 		metaKeywords: "",
@@ -85,7 +86,7 @@ app.use((err, req, res, next) => {
 	res.render("error");
 });
 
-async function getWebsiteSettings(language) {
+async function getConfigurationSettings(language) {
 	const pageID = language === "tr" ? 276 : 407;
 
 	try {
@@ -109,6 +110,6 @@ async function getSomeProductCategories(language) {
 	}
 }
 
-app.listen(4747, () => console.log("Server ready on port 3000."));
+app.listen(PORT, () => console.log(`Server ready on port ${PORT}.`));
 
 module.exports = app;

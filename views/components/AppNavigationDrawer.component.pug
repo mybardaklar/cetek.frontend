@@ -27,14 +27,14 @@ mixin AppNavigationDrawer
 				div(class="flex items-center gap-4 px-2 py-4")
 					a(href="/", class="inline-flex w-40 items-center justify-start")
 						img(
-							src=settings.websiteSettings.website_settings.header_logo.sizes['medium'],
-							alt=settings.websiteSettings.website_settings.header_logo.alt,
+							src=settings.config.website_settings.header_logo.sizes['medium'],
+							alt=settings.config.website_settings.header_logo.alt,
 							class="w-full"
 						)
 					+AppNavigationLanguageSwitcher
 
 				div(class="flex flex-col")
-					nav(class="")
+					nav
 						ul(class="flex flex-col p-2")
 							li(x-data="{ on: false }", x-bind:class="{ 'bg-neutral-50 border border-border mb-2': on }", class="relative rounded-md")
 								a(
