@@ -1,12 +1,12 @@
 {
-	"routeProducts": "/urunlerimiz",
+	"routeProducts": "/urunler",
 	"navbar": {
 		"products": {
-			"href": "/urunlerimiz",
+			"href": "/urunler",
 			"label": "Ürünlerimiz"
 		},
 		"sectoralNozzles": {
-			"href": "/sektorel-nozullar",
+			"href": "/#PageHomeSectionSectoralNozzles",
 			"label": "Sektörel Nozullar"
 		},
 		"gallery": {
@@ -18,7 +18,7 @@
 			"label": "İletişim"
 		},
 		"seeAllProducts": {
-			"href": "/urunlerimiz",
+			"href": "/urunler",
 			"label": "Tüm ürünleri gör"
 		}
 	},
@@ -31,7 +31,7 @@
 	"pageHome": {
 		"sectionAbout": {
 			"buttonProducts": {
-				"href": "/urunlerimiz",
+				"href": "/urunler",
 				"label": "Tüm ürünleri gör"
 			},
 			"buttonContact": {

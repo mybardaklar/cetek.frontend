@@ -37,7 +37,10 @@ html(lang=language, dir="ltr")
 				+AppHeader
 
 			// main.main-content
-			main.main-content
+			main(
+				class="transition duration-300",
+				x-bind:class="{ 'ease-in -translate-x-[300px]': $store.navigationDrawer.on, 'ease-out': !$store.navigationDrawer.on }"
+			)
 				block body
 			// ## main.main-content
 
