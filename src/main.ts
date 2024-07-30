@@ -21,7 +21,7 @@ i18next
 	.use(i18nextMiddleware.LanguageDetector)
 	.init({
 		backend: {
-			loadPath: path.resolve(__dirname, "locales/{{lng}}/{{ns}}.json"),
+			loadPath: path.join(process.cwd(), "src/locales/{{lng}}/{{ns}}.json"),
 		},
 		detection: {
 			order: ["querystring", "cookie"],
@@ -32,7 +32,7 @@ i18next
 	});
 
 // view engine setup
-app.set("views", path.join(__dirname, "views"));
+app.set("views", path.join(process.cwd(), "src/views"));
 app.set("view engine", "pug");
 
 app.use(logger("dev"));

@@ -31,7 +31,7 @@ i18next_1.default
     .use(i18next_http_middleware_1.default.LanguageDetector)
     .init({
     backend: {
-        loadPath: path_1.default.resolve(__dirname, "locales/{{lng}}/{{ns}}.json"),
+        loadPath: path_1.default.join(process.cwd(), "src/locales/{{lng}}/{{ns}}.json"),
     },
     detection: {
         order: ["querystring", "cookie"],
@@ -41,7 +41,7 @@ i18next_1.default
     preload: ["tr", "en"],
 });
 // view engine setup
-app.set("views", path_1.default.join(__dirname, "views"));
+app.set("views", path_1.default.join(process.cwd(), "src/views"));
 app.set("view engine", "pug");
 app.use((0, morgan_1.default)("dev"));
 app.use(express_1.default.json());
