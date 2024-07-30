@@ -1,5 +1,5 @@
 /** @type {import("prettier").Config} */
-export default {
+module.exports = {
 	useTabs: true,
 	printWidth: 100,
 	tabWidth: 4,
