@@ -9,7 +9,7 @@
 		"prettier": "prettier . --write",
 		"dev": "concurrently \"npx tailwindcss -i ./src/assets/css/tailwind.css -o ./public/css/tailwind.css --watch\" \"env-cmd -f .env nodemon src/main.ts\"",
 		"build": "concurrently \"npx tailwindcss build ./src/assets/css/tailwind.css -o ./public/css/tailwind.css\" \"tsc -p .\"",
-		"start": "concurrently \"npx tailwindcss build ./src/assets/css/tailwind.css -o ./public/css/tailwind.css\" \"env-cmd -f .env node dist/main.js\"",
+		"start": "concurrently \"npx tailwindcss build ./src/assets/css/tailwind.css -o ./public/css/tailwind.css\" \"node dist/main.js\"",
 		"preview": "npm-run-all build start"
 	},
 	"dependencies": {
