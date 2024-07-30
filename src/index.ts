@@ -90,8 +90,6 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
 	res.render("error");
 });
 
-app.listen(port, () => {
-	console.log(`[server]: Server is running at http://localhost:${port}`);
-});
+app.listen(port, () => console.log(`[server]: Server is running at http://localhost:${port}`));
 
 export default app;
