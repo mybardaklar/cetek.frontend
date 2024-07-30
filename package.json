@@ -3,16 +3,20 @@
 	"version": "0.0.0",
 	"private": true,
 	"scripts": {
-		"start": "node app.js",
-		"dev": "concurrently \"npx tailwindcss -i ./assets/css/tailwind.css -o ./public/css/tailwind.css --watch\" \"nodemon app.js\"",
-		"build": "npx tailwindcss build ./assets/css/tailwind.css -o ./public/css/tailwind.css",
-		"prettier": "prettier . --write"
+		"start-js": "node app.js",
+		"dev-js": "concurrently \"npx tailwindcss -i ./assets/css/tailwind.css -o ./public/css/tailwind.css --watch\" \"nodemon app.js\"",
+		"build-js": "npx tailwindcss build ./assets/css/tailwind.css -o ./public/css/tailwind.css",
+		"prettier": "prettier . --write",
+		"dev": "concurrently \"npx tailwindcss -i ./src/assets/css/tailwind.css -o ./public/css/tailwind.css --watch\" \"env-cmd -f .env nodemon src/main.ts\"",
+		"build": "concurrently \"npx tailwindcss build ./src/assets/css/tailwind.css -o ./public/css/tailwind.css\" \"npx tsc\"",
+		"start": "concurrently \"npx tailwindcss build ./src/assets/css/tailwind.css -o ./public/css/tailwind.css\" \"env-cmd -f .env node dist/main.js\""
 	},
 	"dependencies": {
 		"axios": "^1.7.2",
 		"cookie-parser": "~1.4.4",
 		"debug": "~2.6.9",
 		"dotenv": "^16.4.5",
+		"env-cmd": "^10.1.0",
 		"express": "~4.16.1",
 		"http-errors": "~1.6.3",
 		"i18next": "^23.12.1",
@@ -24,6 +28,11 @@
 	"devDependencies": {
 		"@tailwindcss/forms": "^0.5.7",
 		"@tailwindcss/typography": "^0.5.13",
+		"@types/cookie-parser": "^1.4.7",
+		"@types/express": "^4.17.21",
+		"@types/http-errors": "^2.0.4",
+		"@types/morgan": "^1.9.9",
+		"@types/node": "^22.0.0",
 		"autoprefixer": "^10.4.19",
 		"concurrently": "^8.2.2",
 		"nodemon": "^3.1.4",
@@ -32,6 +41,8 @@
 		"postcss-sort-media-queries": "^5.2.0",
 		"prettier": "^3.3.2",
 		"tailwindcss": "^3.4.6",
-		"tailwindcss-animate": "^1.0.7"
+		"tailwindcss-animate": "^1.0.7",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.5.4"
 	}
 }

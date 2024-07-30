@@ -1,9 +1,9 @@
-/** @type {import('tailwindcss').Config} */
-const defaultTheme = require("tailwindcss/defaultTheme");
+import type { Config } from "tailwindcss";
+import defaultTheme from "tailwindcss/defaultTheme";
 
-module.exports = {
+const config = {
 	darkMode: ["class"],
-	content: ["./views/**/*.{html,pug,js}", "./public/**/*.{html,pug,js}"],
+	content: ["./src/**/*.{html,pug,js}", "./public/**/*.{html,pug,js}"],
 	theme: {
 		screens: {
 			xs: "425px",
@@ -73,7 +73,7 @@ module.exports = {
 		require("tailwindcss-animate"),
 		require("@tailwindcss/typography"),
 		require("@tailwindcss/forms"),
-		({ addComponents }) => {
+		({ addComponents }: any) => {
 			addComponents({
 				".container": {
 					"@apply max-sm:max-w-none sm:px-4": {},
@@ -81,4 +81,6 @@ module.exports = {
 			});
 		},
 	],
-};
+} satisfies Config;
+
+export default config;

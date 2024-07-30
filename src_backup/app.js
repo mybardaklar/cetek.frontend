@@ -101,7 +101,7 @@ async function getConfigurationSettings(language) {
 async function getSomeProductCategories(language) {
 	try {
 		const request = await axiosInstance.get(
-			`/product_category?_fields=slug,title,acf,lang&per_page=4&acf_format=standard&lang=${language}`,
+			`/product_category?_fields=id,slug,name,description,count,lang,translations,acf&acf_format=standard&per_page=4&lang=${language}`,
 		);
 
 		return request.data;

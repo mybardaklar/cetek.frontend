@@ -27,7 +27,7 @@ async function getSectoralNozzles(language) {
 async function getAllProductCategories(language) {
 	try {
 		const request = await axiosInstance.get(
-			`/product_category?_fields=slug,title,acf,lang&acf_format=standard&lang=${language}&per_page=100`,
+			`/product_category?_fields=id,slug,name,description,count,lang,translations,acf&acf_format=standard&per_page=100&lang=${language}`,
 		);
 
 		return request.data;
