@@ -61,3 +61,7 @@ typings/
 .next
 
 .vercel
+dist
+.dist
+build
+.build
