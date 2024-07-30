@@ -5,12 +5,13 @@
 	"scripts": {
 		"prettier": "prettier . --write",
 		"dev:tailwindcss": "tailwindcss -i ./src/assets/css/tailwind.css -o ./public/css/tailwind.css --watch",
-		"dev:server": "env-cmd -f .env nodemon src/main.ts",
+		"dev:server": "env-cmd -f .env nodemon src/index.ts",
 		"dev": "concurrently \"pnpm:dev:tailwindcss\" \"pnpm:dev:server\"",
 		"build:tailwindcss": "tailwindcss build -i ./src/assets/css/tailwind.css -o ./public/css/tailwind.css",
 		"build:server": "tsc -p .",
-		"build": "concurrently \"pnpm:build:tailwindcss\" \"pnpm:build:server\"",
-		"start": "concurrently \"pnpm:build\" \"node dist/src/main.js\""
+		"build": "npm run build:tailwindcss && npm run build:server",
+		"start": "npm run build && env-cmd -f .env node dist/src/index.js",
+		"vercel-build": "npm run build && node dist/src/index.js"
 	},
 	"dependencies": {
 		"axios": "^1.7.2",
