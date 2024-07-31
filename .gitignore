@@ -65,3 +65,5 @@ dist
 .dist
 build
 .build
+# Local Netlify folder
+.netlify
