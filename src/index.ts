@@ -7,6 +7,7 @@ import logger from "morgan";
 import i18next from "i18next";
 import i18nextMiddleware from "i18next-http-middleware";
 import Backend from "i18next-fs-backend";
+import serverless from "serverless-http";
 
 import AppService from "./app/app.service";
 import AppRouter from "./app/app.route";
@@ -91,5 +92,7 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
 });
 
 app.listen(port, () => console.log(`[server]: Server is running at http://localhost:${port}`));
+
+export const handler = serverless(app);
 
 export default app;
