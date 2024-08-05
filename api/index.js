@@ -35,6 +35,9 @@ i18next
 app.set("views", path.join(process.cwd(), "views"));
 app.set("view engine", "pug");
 
+app.use(logger(process.env.NODE_ENV));
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
 app.use(i18nextMiddleware.handle(i18next));
 app.use(express.static(path.join(process.cwd(), "public")));
 
@@ -85,7 +88,5 @@ app.use((err, req, res, next) => {
 	res.status(err.status || 500);
 	res.render("error");
 });
-
-app.listen(port, () => console.log(`[server]: Server is running at http://localhost:${port}`));
 
 module.exports = app;
