@@ -1,6 +1,6 @@
 const dotenv = require("dotenv");
 const createError = require("http-errors");
-const express = require("express");
+const app = require("express")();
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
@@ -12,9 +12,6 @@ dotenv.config();
 
 const AppRouter = require("./app/app.route");
 const AppService = require("./app/app.service");
-
-const app = express();
-const port = process.env.PORT || 3000;
 
 i18next
 	.use(Backend)
@@ -88,7 +85,5 @@ app.use((err, req, res, next) => {
 	res.status(err.status || 500);
 	res.render("error");
 });
-
-app.listen(port, () => console.log(`[server]: Server is running at http://localhost:${port}`));
 
 module.exports = app;
