@@ -2,6 +2,9 @@ const AppService = require("./app.service");
 
 class AppController {
 	static async home(req, res, next) {
+		res.setHeader("Content-Type", "text/html");
+		res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
+
 		const appService = new AppService(res.locals.language);
 
 		return res.render("pages/Index/Index.page.pug", {
