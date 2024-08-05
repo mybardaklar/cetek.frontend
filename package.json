@@ -10,7 +10,7 @@
 		"build:tailwindcss": "tailwindcss build -i ./src/assets/css/tailwind.css -o ./public/css/tailwind.css",
 		"build:server": "tsc -p .",
 		"build:local": "npm run build:tailwindcss && npm run build:server",
-		"build": "npm run build:local && env-cmd -f .env node ./dist/src/index.js",
+		"local": "npm run build:local && env-cmd -f .env node ./dist/src/index.js",
 		"asda": "npm run build:tailwindcss && ts-node dist/src/index.ts"
 	},
 	"dependencies": {

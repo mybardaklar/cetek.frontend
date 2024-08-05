@@ -1,15 +1,15 @@
-import dotenv from "dotenv";
-import createError from "http-errors";
-import express, { Express, Request, Response, NextFunction } from "express";
-import path from "path";
-import cookieParser from "cookie-parser";
-import logger from "morgan";
-import i18next from "i18next";
-import i18nextMiddleware from "i18next-http-middleware";
-import Backend from "i18next-fs-backend";
+const dotenv = require("dotenv");
+const createError = require("http-errors");
+const express = require("express");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
+const i18next = require("i18next");
+const i18nextMiddleware = require("i18next-http-middleware");
+const Backend = require("i18next-fs-backend");
 
-import AppService from "./app/app.service";
-import AppRouter from "./app/app.route";
+const AppRouter = require("./app/app.route");
+const AppService = require("./app/app.service");
 
 dotenv.config();
 
@@ -51,7 +51,7 @@ app.use(express.static(path.join(process.cwd(), "public")));
 	app.locals.someProductCategories = someProductCategories;
 })();
 
-app.use(async (req: Request, res: Response, next: NextFunction) => {
+app.use(async (req, res, next) => {
 	const appService = new AppService(res.locals.language);
 
 	if (res.locals.language) {
@@ -80,7 +80,7 @@ app.use((req, res, next) => {
 });
 
 // error handler
-app.use((err: any, req: Request, res: Response, next: NextFunction) => {
+app.use((err, req, res, next) => {
 	// set locals, only providing error in development
 	res.locals.message = err.message;
 	res.locals.error = req.app.get("env") === "development" ? err : {};
