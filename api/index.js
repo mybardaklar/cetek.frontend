@@ -8,10 +8,10 @@ const i18next = require("i18next");
 const i18nextMiddleware = require("i18next-http-middleware");
 const Backend = require("i18next-fs-backend");
 
+dotenv.config();
+
 const AppRouter = require("./app/app.route");
 const AppService = require("./app/app.service");
-
-dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -88,5 +88,7 @@ app.use((err, req, res, next) => {
 	res.status(err.status || 500);
 	res.render("error");
 });
+
+app.listen(port, () => console.log(`[server]: Server is running at http://localhost:${port}`));
 
 module.exports = app;
