@@ -21,7 +21,7 @@ i18next
 	.use(i18nextMiddleware.LanguageDetector)
 	.init({
 		backend: {
-			loadPath: path.join(process.cwd(), "api/locales/{{lng}}/{{ns}}.json"),
+			loadPath: path.join(process.cwd(), "locales/{{lng}}/{{ns}}.json"),
 		},
 		detection: {
 			order: ["querystring", "cookie"],
@@ -32,7 +32,7 @@ i18next
 	});
 
 // view engine setup
-app.set("views", path.join(process.cwd(), "api/views"));
+app.set("views", path.join(process.cwd(), "views"));
 app.set("view engine", "pug");
 
 app.use(logger("dev"));
@@ -40,7 +40,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(i18nextMiddleware.handle(i18next));
-app.use(express.static(path.join(process.cwd(), "api/public")));
+app.use(express.static(path.join(process.cwd(), "public")));
 
 (async () => {
 	const appService = new AppService("tr");
